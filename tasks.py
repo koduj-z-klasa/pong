@@ -26,3 +26,7 @@ def tags(docs=False):
         run('git tag -f '+tag)
         sleep(1)  # Git psuje ścieżki powiązań jeśli operacje są zbyt blisko siebie
 
+
+@task
+def push(docs=False):
+    run("git push --tags")
