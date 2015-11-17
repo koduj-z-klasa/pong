@@ -1,5 +1,7 @@
 # coding=utf-8
 from shutil import copy
+from time import sleep
+
 from pathlib import Path
 from invoke import run, task
 
@@ -22,4 +24,5 @@ def tags(docs=False):
             copy(unicode(src), unicode(dst))
         run('git commit -am '+tag)
         run('git tag -f '+tag)
+        sleep(1)  # Git psuje ścieżki powiązań jeśli operacje są zbyt blisko siebie
 
